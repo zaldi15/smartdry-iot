@@ -1,0 +1,930 @@
+[
+    {
+        "id": "ccebc99eec36fe98",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "53c420a0d73b39c2",
+        "type": "mqtt-broker",
+        "name": "HiveMQ SmartDry",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "1eadc2e558c263ee",
+        "type": "ui-base",
+        "name": "My Dashboard",
+        "path": "/dashboard",
+        "appIcon": "",
+        "includeClientData": true,
+        "acceptsClientConfig": [
+            "ui-notification",
+            "ui-control"
+        ],
+        "showPathInSidebar": false,
+        "headerContent": "page",
+        "navigationStyle": "default",
+        "titleBarStyle": "default",
+        "showReconnectNotification": true,
+        "notificationDisplayTime": 1,
+        "showDisconnectNotification": true,
+        "allowInstall": false
+    },
+    {
+        "id": "ebe573d612b8e709",
+        "type": "ui-theme",
+        "name": "Default Theme",
+        "colors": {
+            "surface": "#fcfcfd",
+            "primary": "#0d74ce",
+            "bgPage": "#f9f9fb",
+            "groupBg": "#ffffff",
+            "groupOutline": "#d9d9e0"
+        },
+        "sizes": {
+            "density": "default",
+            "pagePadding": "12px",
+            "groupGap": "12px",
+            "groupBorderRadius": "4px",
+            "widgetGap": "12px"
+        }
+    },
+    {
+        "id": "9b3650ab3eb55bf5",
+        "type": "ui-page",
+        "name": "SmartDry | IoT Monitoring",
+        "ui": "1eadc2e558c263ee",
+        "path": "/page1",
+        "icon": "home",
+        "layout": "grid",
+        "theme": "ebe573d612b8e709",
+        "breakpoints": [
+            {
+                "name": "Default",
+                "px": "0",
+                "cols": "3"
+            },
+            {
+                "name": "Tablet",
+                "px": "576",
+                "cols": "6"
+            },
+            {
+                "name": "Small Desktop",
+                "px": "768",
+                "cols": "9"
+            },
+            {
+                "name": "Desktop",
+                "px": "1024",
+                "cols": "12"
+            }
+        ],
+        "tabs": [],
+        "order": 1,
+        "className": "",
+        "visible": "true",
+        "disabled": "false"
+    },
+    {
+        "id": "bed2f5737d6413be",
+        "type": "ui-group",
+        "name": "SmartDry Monitoring",
+        "page": "9b3650ab3eb55bf5",
+        "width": "12",
+        "height": 1,
+        "order": 1,
+        "showTitle": true,
+        "className": "",
+        "visible": "true",
+        "disabled": "false",
+        "groupType": "default",
+        "tab": ""
+    },
+    {
+        "id": "ef69efe0d13774ae",
+        "type": "mqtt in",
+        "z": "ccebc99eec36fe98",
+        "name": "",
+        "topic": "smartdry/zaldi/monitoring",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "53c420a0d73b39c2",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 170,
+        "y": 180,
+        "wires": [
+            [
+                "ce9c158145ad5ac2",
+                "22a0d8bc00b81e53",
+                "cc143a9ec69ae480",
+                "8f0962194479480a",
+                "fc951856c226b501",
+                "c2f42f94210df847",
+                "62528cdd2429776b",
+                "2b239631df2f3528",
+                "15294c8b4a14fa64",
+                "65f54f72fdfd3640",
+                "543d257a3e81ca07",
+                "6cb336202e2631f9",
+                "c205f68da8bc1a33",
+                "4fb4cfefc87ce84a"
+            ]
+        ]
+    },
+    {
+        "id": "ce9c158145ad5ac2",
+        "type": "debug",
+        "z": "ccebc99eec36fe98",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1d1694ae9e3c1064",
+        "type": "ui-text",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "name": "Temperature",
+        "label": "Temperature (°C)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.temperature",
+        "valueType": "msg",
+        "x": 590,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "84dab1197e4ed9b9",
+        "type": "ui-text",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "order": 8,
+        "width": "3",
+        "height": "1",
+        "name": "Humidity",
+        "label": "\tHumidity (%)",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.humidity",
+        "valueType": "msg",
+        "x": 600,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "22a0d8bc00b81e53",
+        "type": "ui-text",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "order": 9,
+        "width": "3",
+        "height": "1",
+        "name": "Water Mass",
+        "label": "Water Mass",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#717171",
+        "wrapText": false,
+        "className": "",
+        "value": "payload.water_mass",
+        "valueType": "msg",
+        "x": 590,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "7ca15b34ad0c2f31",
+        "type": "ui-gauge",
+        "z": "ccebc99eec36fe98",
+        "name": "\tGauge Temperature",
+        "group": "bed2f5737d6413be",
+        "order": 10,
+        "value": "payload",
+        "valueType": "msg",
+        "width": "6",
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "\tTemperature",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "°C",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#d6a35c",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#d6935c",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 680,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cc143a9ec69ae480",
+        "type": "ui-gauge",
+        "z": "ccebc99eec36fe98",
+        "name": "Gauge Humidity",
+        "group": "bed2f5737d6413be",
+        "order": 11,
+        "value": "payload.humidity",
+        "valueType": "msg",
+        "width": "6",
+        "height": 3,
+        "gtype": "gauge-half",
+        "gstyle": "rounded",
+        "title": "Humidity",
+        "alwaysShowTitle": false,
+        "floatingTitlePosition": "top-left",
+        "units": "\t%",
+        "icon": "",
+        "prefix": "",
+        "suffix": "",
+        "segments": [
+            {
+                "from": "0",
+                "color": "#5c64d6",
+                "text": "",
+                "textType": "label"
+            },
+            {
+                "from": "40",
+                "color": "#5c64d6",
+                "text": "",
+                "textType": "label"
+            }
+        ],
+        "min": 0,
+        "max": "100",
+        "sizeThickness": 16,
+        "sizeGap": 4,
+        "sizeKeyThickness": 8,
+        "styleRounded": true,
+        "styleGlow": false,
+        "className": "",
+        "x": 600,
+        "y": 480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "84f9df37e89d6cfb",
+        "type": "change",
+        "z": "ccebc99eec36fe98",
+        "name": "Change Temperature",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.temperature",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 320,
+        "wires": [
+            [
+                "7ca15b34ad0c2f31",
+                "bae40d533ba121f4"
+            ]
+        ]
+    },
+    {
+        "id": "bae40d533ba121f4",
+        "type": "ui-chart",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "name": "Chart Temperature",
+        "label": "\tTemperature History",
+        "order": 12,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "5",
+        "className": "",
+        "interpolation": "linear",
+        "x": 910,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37eb4644c2587dee",
+        "type": "ui-chart",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "name": "Chart Humidity",
+        "label": "\tHumidity History",
+        "order": 13,
+        "chartType": "line",
+        "category": "topic",
+        "categoryType": "msg",
+        "xAxisLabel": "",
+        "xAxisProperty": "",
+        "xAxisPropertyType": "timestamp",
+        "xAxisType": "time",
+        "xAxisFormat": "",
+        "xAxisFormatType": "{HH}:{mm}:{ss}",
+        "xmin": "",
+        "xmax": "",
+        "yAxisLabel": "",
+        "yAxisProperty": "payload",
+        "yAxisPropertyType": "msg",
+        "ymin": "",
+        "ymax": "",
+        "bins": 10,
+        "action": "append",
+        "stackSeries": false,
+        "pointShape": "circle",
+        "pointRadius": 4,
+        "showLegend": true,
+        "removeOlder": 1,
+        "removeOlderUnit": "3600",
+        "removeOlderPoints": "",
+        "colors": [
+            "#0095ff",
+            "#ff0000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#a347e1",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "textColor": [
+            "#666666"
+        ],
+        "textColorDefault": true,
+        "gridColor": [
+            "#e5e5e5"
+        ],
+        "gridColorDefault": true,
+        "width": 6,
+        "height": "5",
+        "className": "",
+        "interpolation": "linear",
+        "x": 800,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2739531ad54a1732",
+        "type": "change",
+        "z": "ccebc99eec36fe98",
+        "name": "Change Humidity",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.humidity",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 590,
+        "y": 440,
+        "wires": [
+            [
+                "37eb4644c2587dee"
+            ]
+        ]
+    },
+    {
+        "id": "8f0962194479480a",
+        "type": "function",
+        "z": "ccebc99eec36fe98",
+        "name": "Drying Status",
+        "func": "\nconst data = msg.payload;\n\n// Validasi payload\nif (!data || typeof data !== \"object\") {\n    return null;\n}\n\nconst rawHumidity = data.humidity;\n\n// Jika DHT22 mengalami error\nif (\n    data.dht_status === \"ERROR\" ||\n    rawHumidity === null ||\n    rawHumidity === undefined ||\n    rawHumidity === \"\"\n) {\n    msg.payload = \"SENSOR ERROR\";\n    return msg;\n}\n\nconst humidity = Number(rawHumidity);\n\n// Validasi nilai humidity\nif (\n    !Number.isFinite(humidity) ||\n    humidity < 0 ||\n    humidity > 100\n) {\n    msg.payload = \"SENSOR ERROR\";\n    return msg;\n}\n\n// Klasifikasi berdasarkan kelembapan\nif (humidity >= 60) {\n    msg.payload = \"INITIAL DRYING\";\n}\n\nelse if (humidity >= 50) {\n    msg.payload = \"DRYING IN PROGRESS\";\n}\n\nelse {\n    msg.payload = \"FINAL DRYING STAGE\";\n}\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 340,
+        "wires": [
+            [
+                "cfaccdda1efccaf0"
+            ]
+        ]
+    },
+    {
+        "id": "cfaccdda1efccaf0",
+        "type": "ui-template",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "page": "",
+        "ui": "",
+        "name": "SmartDry Status Card",
+        "order": 6,
+        "width": "12",
+        "height": "2",
+        "head": "",
+        "format": "\n<template>\n  <div class=\"sd-drying-card\" :class=\"statusClass\">\n\n    <div class=\"sd-drying-header\">\n      <div>\n        <div class=\"sd-drying-title\">\n          DRYING STATUS\n        </div>\n        <div class=\"sd-drying-subtitle\">\n          SmartDry Drying Stage Monitoring\n        </div>\n      </div>\n\n      <span class=\"sd-drying-badge\">\n        {{ dryingStatus }}\n      </span>\n    </div>\n\n    <div class=\"sd-drying-message\">\n      {{ statusMessage }}\n    </div>\n\n  </div>\n</template>\n\n<script>\nexport default {\n  computed: {\n    dryingStatus() {\n      const value = this.msg?.payload;\n\n      const validStatuses = [\n        \"INITIAL DRYING\",\n        \"DRYING IN PROGRESS\",\n        \"FINAL DRYING STAGE\",\n        \"SENSOR ERROR\"\n      ];\n\n      return validStatuses.includes(value)\n        ? value\n        : \"WAITING\";\n    },\n\n    statusClass() {\n      if (this.dryingStatus === \"SENSOR ERROR\") {\n        return \"error\";\n      }\n\n      if (this.dryingStatus === \"INITIAL DRYING\") {\n        return \"initial\";\n      }\n\n      if (this.dryingStatus === \"DRYING IN PROGRESS\") {\n        return \"progress\";\n      }\n\n      if (this.dryingStatus === \"FINAL DRYING STAGE\") {\n        return \"final\";\n      }\n\n      return \"waiting\";\n    },\n\n    statusMessage() {\n      if (this.dryingStatus === \"SENSOR ERROR\") {\n        return \"DHT22 reading failed. Drying stage cannot be determined.\";\n      }\n\n      if (this.dryingStatus === \"INITIAL DRYING\") {\n        return \"High ambient humidity detected.\";\n      }\n\n      if (this.dryingStatus === \"DRYING IN PROGRESS\") {\n        return \"Moderate ambient humidity detected.\";\n      }\n\n      if (this.dryingStatus === \"FINAL DRYING STAGE\") {\n        return \"Low ambient humidity detected.\";\n      }\n\n      return \"Waiting for valid sensor data...\";\n    }\n  }\n}\n</script>\n\n<style>\n.sd-drying-card {\n  padding: 20px 22px;\n  border-radius: 14px;\n  border: 1px solid #E2E8F0;\n  background: #F8FAFC;\n  box-sizing: border-box;\n  font-family: Arial, sans-serif;\n}\n\n.sd-drying-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n\n.sd-drying-title {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E293B;\n}\n\n.sd-drying-subtitle {\n  font-size: 12px;\n  color: #64748B;\n  margin-top: 5px;\n}\n\n.sd-drying-badge {\n  padding: 9px 15px;\n  border-radius: 24px;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.sd-drying-message {\n  margin-top: 18px;\n  font-size: 14px;\n}\n\n.sd-drying-card.initial {\n  background: #FFF7ED;\n  border-color: #FED7AA;\n  color: #C2410C;\n}\n\n.initial .sd-drying-badge {\n  background: #FFEDD5;\n  color: #C2410C;\n}\n\n.sd-drying-card.progress {\n  background: #FFFBEB;\n  border-color: #FDE68A;\n  color: #A16207;\n}\n\n.progress .sd-drying-badge {\n  background: #FEF3C7;\n  color: #A16207;\n}\n\n.sd-drying-card.final {\n  background: #F0FDF4;\n  border-color: #BBF7D0;\n  color: #15803D;\n}\n\n.final .sd-drying-badge {\n  background: #DCFCE7;\n  color: #15803D;\n}\n\n.sd-drying-card.error {\n  background: #FEF2F2;\n  border-color: #FECACA;\n  color: #B91C1C;\n}\n\n.error .sd-drying-badge {\n  background: #FEE2E2;\n  color: #B91C1C;\n}\n\n.sd-drying-card.waiting {\n  color: #64748B;\n}\n\n.waiting .sd-drying-badge {\n  background: #E2E8F0;\n  color: #475569;\n}\n</style>\n",
+        "noerr": 0,
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 300,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "fc951856c226b501",
+        "type": "trigger",
+        "z": "ccebc99eec36fe98",
+        "name": "System Status Monitor",
+        "op1": "",
+        "op2": "OFFLINE",
+        "op1type": "nul",
+        "op2type": "str",
+        "duration": "120",
+        "extend": true,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 300,
+        "y": 520,
+        "wires": [
+            [
+                "2bba329c8febce45"
+            ]
+        ]
+    },
+    {
+        "id": "3876538b793cc928",
+        "type": "ui-template",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "page": "",
+        "ui": "",
+        "name": "System Status Display",
+        "order": 2,
+        "width": "12",
+        "height": "2",
+        "head": "",
+        "format": "\n<template>\n  <div class=\"system-status-card\">\n    <div>\n      <div class=\"system-title\">SYSTEM STATUS</div>\n      <div class=\"system-subtitle\">\n        SmartDry Data Connection\n      </div>\n    </div>\n\n    <div\n      class=\"system-badge\"\n      :class=\"{\n        online: msg?.payload === 'ONLINE',\n        offline: msg?.payload === 'OFFLINE'\n      }\"\n    >\n      <span class=\"status-dot\"></span>\n      {{ msg?.payload || 'WAITING FOR DATA' }}\n    </div>\n  </div>\n</template>\n\n<style>\n.system-status-card {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 16px;\n  padding: 16px 22px;\n  background: #F8FAFC;\n  border: 1px solid #E2E8F0;\n  border-radius: 14px;\n  min-height: 86px;\n}\n\n.system-title {\n  font-size: 17px;\n  font-weight: 700;\n  color: #1E293B;\n}\n\n.system-subtitle {\n  font-size: 12px;\n  color: #64748B;\n  margin-top: 4px;\n}\n\n.system-badge {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 10px 16px;\n  border-radius: 30px;\n  font-size: 12px;\n  font-weight: 700;\n  background: #E2E8F0;\n  color: #475569;\n}\n\n.status-dot {\n  width: 9px;\n  height: 9px;\n  border-radius: 50%;\n  background: currentColor;\n}\n\n.system-badge.online {\n  background: #DCFCE7;\n  color: #15803D;\n}\n\n.system-badge.offline {\n  background: #FEE2E2;\n  color: #B91C1C;\n}\n</style>\n",
+        "noerr": 0,
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 320,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2f42f94210df847",
+        "type": "function",
+        "z": "ccebc99eec36fe98",
+        "name": "Prepare Log Data",
+        "func": "\nconst data = msg.payload;\n\nif (!data || typeof data !== \"object\") {\n    return null;\n}\n\n// Validasi angka untuk CSV\nfunction safeNumber(value, min, max) {\n    if (\n        value === null ||\n        value === undefined ||\n        value === \"\"\n    ) {\n        return \"\";\n    }\n\n    const number = Number(value);\n\n    if (\n        !Number.isFinite(number) ||\n        number < min ||\n        number > max\n    ) {\n        return \"\";\n    }\n\n    return number;\n}\n\n// Timestamp WIB\nconst waktu = new Date().toLocaleString(\"sv-SE\", {\n    timeZone: \"Asia/Jakarta\",\n    hour12: false\n});\n\n// Status sensor\nconst dhtError = data.dht_status === \"ERROR\";\nconst hxError = data.hx711_status === \"ERROR\";\n\n// Tetap gunakan 8 kolom CSV\nmsg.payload = {\n    timestamp: waktu,\n\n    temperature: dhtError\n        ? \"\"\n        : safeNumber(data.temperature, -40, 80),\n\n    humidity: dhtError\n        ? \"\"\n        : safeNumber(data.humidity, 0, 100),\n\n    water_mass: hxError\n        ? \"\"\n        : safeNumber(data.water_mass, 0, 10000),\n\n    fan_speed: data.fan_speed ?? \"\",\n    fan_pwm: safeNumber(data.fan_pwm, 0, 100),\n\n    safety_status: data.safety_status ?? \"\",\n    safety_action: data.safety_action ?? \"\"\n};\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 110,
+        "y": 280,
+        "wires": [
+            [
+                "8e6c9ee4a958b4bb"
+            ]
+        ]
+    },
+    {
+        "id": "8e6c9ee4a958b4bb",
+        "type": "csv",
+        "z": "ccebc99eec36fe98",
+        "name": "\tConvert to CSV",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "once",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "timestamp,temperature,humidity,water_mass,fan_speed,fan_pwm,safety_status,safety_action",
+        "skip": "0",
+        "strings": true,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 100,
+        "y": 400,
+        "wires": [
+            [
+                "2e9467613b8e08a7"
+            ]
+        ]
+    },
+    {
+        "id": "2e9467613b8e08a7",
+        "type": "file",
+        "z": "ccebc99eec36fe98",
+        "name": "Save SmartDry Log",
+        "filename": "C:\\Users\\Public\\smartdry_log_safety.csv",
+        "filenameType": "str",
+        "appendNewline": false,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "utf8",
+        "x": 90,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2bba329c8febce45",
+        "type": "debug",
+        "z": "ccebc99eec36fe98",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "62528cdd2429776b",
+        "type": "change",
+        "z": "ccebc99eec36fe98",
+        "name": "Set ONLINE",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ONLINE",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 90,
+        "y": 600,
+        "wires": [
+            [
+                "2bba329c8febce45"
+            ]
+        ]
+    },
+    {
+        "id": "2b239631df2f3528",
+        "type": "ui-template",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "page": "",
+        "ui": "",
+        "name": "Fan PWM Card",
+        "order": 5,
+        "width": "12",
+        "height": "5",
+        "head": "",
+        "format": "\n<template>\n  <div class=\"sd-pwm-card\">\n\n    <div class=\"sd-pwm-header\">\n      <div>\n        <div class=\"sd-pwm-title\">\n          FAN PWM CONTROL\n        </div>\n\n        <div class=\"sd-pwm-subtitle\">\n          SmartDry Automatic Fan System\n        </div>\n      </div>\n\n      <span\n        class=\"sd-pwm-badge\"\n        :class=\"msg?.payload?.fan_speed || 'WAITING'\"\n      >\n        {{ msg?.payload?.fan_speed || 'WAITING' }}\n      </span>\n    </div>\n\n    <div class=\"sd-pwm-value-row\">\n      <span>PWM Duty Cycle</span>\n\n      <strong>\n        {{ msg?.payload?.fan_pwm != null\n          ? msg.payload.fan_pwm + '%'\n          : '--' }}\n      </strong>\n    </div>\n\n    <div class=\"sd-pwm-track\">\n      <div\n        class=\"sd-pwm-fill\"\n        :class=\"msg?.payload?.fan_speed || 'WAITING'\"\n        :style=\"{\n          width: Math.max(0, Math.min(100,\n            Number(msg?.payload?.fan_pwm) || 0\n          )) + '%'\n        }\"\n      ></div>\n    </div>\n\n    <div class=\"sd-pwm-scale\">\n      <span>0%</span>\n      <span>100%</span>\n    </div>\n\n  </div>\n</template>\n\n<style>\n.sd-pwm-card {\n  padding: 18px 22px;\n  background: #F8FAFC;\n  border: 1px solid #E2E8F0;\n  border-radius: 14px;\n  min-height: 130px;\n  font-family: Arial, sans-serif;\n}\n\n.sd-pwm-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  gap: 12px;\n  flex-wrap: wrap;\n  margin-bottom: 20px;\n}\n\n.sd-pwm-title {\n  font-size: 17px;\n  font-weight: 700;\n  color: #1E293B;\n}\n\n.sd-pwm-subtitle {\n  font-size: 12px;\n  color: #64748B;\n  margin-top: 4px;\n}\n\n.sd-pwm-badge {\n  padding: 9px 16px;\n  border-radius: 25px;\n  font-size: 12px;\n  font-weight: 700;\n  background: #E2E8F0;\n  color: #475569;\n}\n\n.sd-pwm-badge.LOW {\n  background: #DCFCE7;\n  color: #15803D;\n}\n\n.sd-pwm-badge.MEDIUM {\n  background: #FEF3C7;\n  color: #B45309;\n}\n\n.sd-pwm-badge.HIGH {\n  background: #FEE2E2;\n  color: #B91C1C;\n}\n\n.sd-pwm-value-row {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  margin-bottom: 12px;\n  font-size: 14px;\n  color: #475569;\n}\n\n.sd-pwm-value-row strong {\n  font-size: 28px;\n  color: #1E293B;\n}\n\n.sd-pwm-track {\n  width: 100%;\n  height: 16px;\n  background: #E2E8F0;\n  border-radius: 20px;\n  overflow: hidden;\n}\n\n.sd-pwm-fill {\n  height: 100%;\n  width: 0%;\n  border-radius: 20px;\n  background: #94A3B8;\n  transition: width 0.5s ease,\n              background 0.5s ease;\n}\n\n.sd-pwm-fill.LOW {\n  background: #22C55E;\n}\n\n.sd-pwm-fill.MEDIUM {\n  background: #EAB308;\n}\n\n.sd-pwm-fill.HIGH {\n  background: #EF4444;\n}\n\n.sd-pwm-scale {\n  display: flex;\n  justify-content: space-between;\n  margin-top: 7px;\n  font-size: 11px;\n  color: #94A3B8;\n}\n</style>\n",
+        "noerr": 0,
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 460,
+        "y": 720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "15294c8b4a14fa64",
+        "type": "ui-template",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "page": "",
+        "ui": "",
+        "name": "Temperature Safety Alert",
+        "order": 3,
+        "width": "12",
+        "height": "4",
+        "head": "",
+        "format": "\n<template>\n  <div class=\"sd-safety-card\"\n       :class=\"safetyStatus\">\n\n    <div class=\"sd-safety-header\">\n      <div>\n        <div class=\"sd-safety-title\">\n          TEMPERATURE SAFETY ALERT\n        </div>\n        <div class=\"sd-safety-subtitle\">\n          SmartDry Temperature Monitoring\n        </div>\n      </div>\n\n      <span class=\"sd-safety-badge\">\n        {{ safetyStatus.toUpperCase() }}\n      </span>\n    </div>\n\n    <div class=\"sd-safety-reading\">\n      <div class=\"sd-safety-temp\">\n        {{ temperature !== null\n          ? temperature.toFixed(1) + ' °C'\n          : '-- °C' }}\n      </div>\n    </div>\n\n    <div class=\"sd-safety-message\">\n      {{ safetyMessage }}\n    </div>\n\n  </div>\n</template>\n\n<script>\nexport default {\n  computed: {\n    temperature() {\n      const value = this.msg?.payload?.temperature;\n\n      if (value === null ||\n          value === undefined ||\n          value === \"\") {\n        return null;\n      }\n\n      const number = Number(value);\n\n      return Number.isFinite(number)\n        ? number\n        : null;\n    },\n\n    safetyStatus() {\n      if (this.temperature === null) {\n        return \"waiting\";\n      }\n\n      if (this.temperature >= 50) {\n        return \"critical\";\n      }\n\n      if (this.temperature >= 45) {\n        return \"warning\";\n      }\n\n      return \"normal\";\n    },\n\n    safetyMessage() {\n      if (this.safetyStatus === \"critical\") {\n        return \"Critical temperature threshold exceeded!\";\n      }\n\n      if (this.safetyStatus === \"warning\") {\n        return \"High temperature detected. Check the system.\";\n      }\n\n      if (this.safetyStatus === \"normal\") {\n        return \"Temperature is below the test warning limit.\";\n      }\n\n      return \"Waiting for temperature data...\";\n    }\n  }\n}\n</script>\n\n<style>\n.sd-safety-card {\n  padding: 18px 22px;\n  border-radius: 14px;\n  border: 1px solid #E2E8F0;\n  background: #F8FAFC;\n  font-family: Arial, sans-serif;\n}\n\n.sd-safety-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 12px;\n}\n\n.sd-safety-title {\n  font-size: 17px;\n  font-weight: 700;\n  color: #1E293B;\n}\n\n.sd-safety-subtitle {\n  font-size: 12px;\n  color: #64748B;\n  margin-top: 5px;\n}\n\n.sd-safety-badge {\n  padding: 9px 16px;\n  border-radius: 24px;\n  font-size: 12px;\n  font-weight: 700;\n}\n\n.sd-safety-reading {\n  margin-top: 18px;\n}\n\n.sd-safety-temp {\n  font-size: 30px;\n  font-weight: 700;\n}\n\n.sd-safety-message {\n  margin-top: 10px;\n  font-size: 13px;\n}\n\n.sd-safety-card.normal {\n  background: #F0FDF4;\n  border-color: #BBF7D0;\n  color: #15803D;\n}\n\n.normal .sd-safety-badge {\n  background: #DCFCE7;\n  color: #15803D;\n}\n\n.sd-safety-card.warning {\n  background: #FFFBEB;\n  border-color: #FDE68A;\n  color: #B45309;\n}\n\n.warning .sd-safety-badge {\n  background: #FEF3C7;\n  color: #B45309;\n}\n\n.sd-safety-card.critical {\n  background: #FEF2F2;\n  border-color: #FECACA;\n  color: #B91C1C;\n}\n\n.critical .sd-safety-badge {\n  background: #FEE2E2;\n  color: #B91C1C;\n}\n\n.sd-safety-card.waiting {\n  color: #64748B;\n}\n\n.waiting .sd-safety-badge {\n  background: #E2E8F0;\n  color: #475569;\n}\n</style>\n",
+        "noerr": 0,
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 730,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "65f54f72fdfd3640",
+        "type": "ui-template",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "page": "",
+        "ui": "",
+        "name": "Safety Protection Card",
+        "order": 4,
+        "width": "12",
+        "height": "6",
+        "head": "",
+        "format": "\n<template>\n  <div class=\"sd-protect\" :class=\"statusClass\">\n\n    <div class=\"sd-protect-header\">\n      <div>\n        <div class=\"sd-protect-title\">\n          SAFETY PROTECTION\n        </div>\n        <div class=\"sd-protect-subtitle\">\n          SmartDry Automatic Protection System\n        </div>\n      </div>\n\n      <span class=\"sd-protect-badge\">\n        {{ safetyStatus }}\n      </span>\n    </div>\n\n    <div class=\"sd-protect-action\">\n      <div class=\"sd-protect-label\">\n        CURRENT SAFETY ACTION\n      </div>\n\n      <div class=\"sd-protect-action-name\">\n        {{ safetyAction }}\n      </div>\n\n      <div class=\"sd-protect-message\">\n        {{ safetyMessage }}\n      </div>\n    </div>\n\n    <div class=\"sd-protect-details\">\n      <div>\n        <span>Fan Speed</span>\n        <strong>{{ fanSpeed }}</strong>\n      </div>\n\n      <div>\n        <span>PWM Duty Cycle</span>\n        <strong>{{ fanPWM }}</strong>\n      </div>\n    </div>\n\n  </div>\n</template>\n\n<script>\nexport default {\n  computed: {\n    data() {\n      return this.msg?.payload || {};\n    },\n\n    safetyStatus() {\n      const value = this.data.safety_status;\n\n      const validStatuses = [\n        \"NORMAL\",\n        \"WARNING\",\n        \"CRITICAL\",\n        \"SENSOR_ERROR\"\n      ];\n\n      return validStatuses.includes(value)\n        ? value\n        : \"WAITING\";\n    },\n\n    statusClass() {\n      if (this.safetyStatus === \"SENSOR_ERROR\") {\n        return \"error\";\n      }\n\n      return this.safetyStatus.toLowerCase();\n    },\n\n    safetyAction() {\n      return this.data.safety_action ||\n        \"WAITING FOR DATA\";\n    },\n\n    fanSpeed() {\n      return this.data.fan_speed || \"--\";\n    },\n\n    fanPWM() {\n      const value = this.data.fan_pwm;\n\n      return value !== null &&\n             value !== undefined\n        ? value + \"%\"\n        : \"--\";\n    },\n\n    safetyMessage() {\n      if (this.safetyStatus === \"SENSOR_ERROR\") {\n        return \"DHT22 reading failed. Fan indicators disabled in simulation.\";\n      }\n\n      if (this.safetyStatus === \"CRITICAL\") {\n        return \"Critical temperature! Cooling override active.\";\n      }\n\n      if (this.safetyStatus === \"WARNING\") {\n        return \"High temperature detected. Cooling override active.\";\n      }\n\n      if (this.safetyStatus === \"NORMAL\") {\n        return \"System operating under normal fan control.\";\n      }\n\n      return \"Waiting for ESP32 safety data...\";\n    }\n  }\n}\n</script>\n\n<style>\n.sd-protect {\n  font-family: Arial, sans-serif;\n  padding: 18px 22px;\n  background: #F8FAFC;\n  border: 1px solid #E2E8F0;\n  border-radius: 14px;\n  box-sizing: border-box;\n}\n\n.sd-protect-header {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  flex-wrap: wrap;\n  gap: 12px;\n  margin-bottom: 15px;\n}\n\n.sd-protect-title {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E293B;\n}\n\n.sd-protect-subtitle {\n  font-size: 12px;\n  margin-top: 5px;\n  color: #64748B;\n}\n\n.sd-protect-badge {\n  padding: 9px 16px;\n  border-radius: 25px;\n  font-size: 12px;\n  font-weight: 700;\n  background: #E2E8F0;\n  color: #475569;\n}\n\n.sd-protect-action {\n  padding: 14px;\n  background: #F1F5F9;\n  border-radius: 10px;\n}\n\n.sd-protect-label {\n  font-size: 11px;\n  font-weight: 700;\n  color: #64748B;\n  margin-bottom: 7px;\n}\n\n.sd-protect-action-name {\n  font-size: 18px;\n  font-weight: 700;\n  color: #1E293B;\n  overflow-wrap: anywhere;\n}\n\n.sd-protect-message {\n  font-size: 12px;\n  color: #64748B;\n  margin-top: 7px;\n}\n\n.sd-protect-details {\n  display: flex;\n  gap: 20px;\n  margin-top: 15px;\n}\n\n.sd-protect-details > div {\n  flex: 1;\n  display: flex;\n  flex-direction: column;\n  gap: 5px;\n}\n\n.sd-protect-details span {\n  font-size: 12px;\n  color: #64748B;\n}\n\n.sd-protect-details strong {\n  font-size: 18px;\n  color: #1E293B;\n}\n\n/* NORMAL */\n.sd-protect.normal {\n  border-color: #BBF7D0;\n}\n\n.sd-protect.normal .sd-protect-badge {\n  background: #DCFCE7;\n  color: #15803D;\n}\n\n/* WARNING */\n.sd-protect.warning {\n  border-color: #FDE68A;\n}\n\n.sd-protect.warning .sd-protect-badge {\n  background: #FEF3C7;\n  color: #B45309;\n}\n\n/* CRITICAL */\n.sd-protect.critical {\n  border-color: #FECACA;\n}\n\n.sd-protect.critical .sd-protect-badge {\n  background: #FEE2E2;\n  color: #B91C1C;\n}\n\n.sd-protect.critical .sd-protect-action {\n  background: #FEF2F2;\n}\n\n.sd-protect.critical .sd-protect-action-name {\n  color: #B91C1C;\n}\n\n/* SENSOR ERROR */\n.sd-protect.error {\n  border-color: #FCA5A5;\n  background: #FFF7F7;\n}\n\n.sd-protect.error .sd-protect-badge {\n  background: #FEE2E2;\n  color: #B91C1C;\n}\n\n.sd-protect.error .sd-protect-action {\n  background: #FEF2F2;\n}\n\n.sd-protect.error .sd-protect-action-name {\n  color: #DC2626;\n}\n\n/* WAITING */\n.sd-protect.waiting .sd-protect-badge {\n  background: #E2E8F0;\n  color: #475569;\n}\n</style>\n",
+        "noerr": 0,
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 820,
+        "y": 620,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "543d257a3e81ca07",
+        "type": "function",
+        "z": "ccebc99eec36fe98",
+        "name": "SmartDry Heartbeat Monitor",
+        "func": "\nconst TIMEOUT = 120000; // 120 detik\nconst CHECK_TOPIC = \"__smartdry_heartbeat_check__\";\nconst MQTT_TOPIC = \"smartdry/zaldi/monitoring\";\n\nconst now = Date.now();\n\nlet lastSeen = context.get(\"lastSeen\") || 0;\nlet lastStatus = context.get(\"lastStatus\") || null;\n\n// Pesan dari ESP32 melalui MQTT\nif (msg.topic === MQTT_TOPIC) {\n    if (msg.payload && typeof msg.payload === \"object\") {\n        lastSeen = now;\n        context.set(\"lastSeen\", lastSeen);\n    }\n}\n\n// Pemeriksaan berkala dari Inject\nelse if (msg.topic !== CHECK_TOPIC) {\n    return null;\n}\n\n// Tentukan status koneksi data\nconst elapsed = now - lastSeen;\n\nconst newStatus =\n    lastSeen > 0 && elapsed < TIMEOUT\n        ? \"ONLINE\"\n        : \"OFFLINE\";\n\n// Perbarui status hanya ketika berubah\nif (newStatus !== lastStatus) {\n\n    context.set(\"lastStatus\", newStatus);\n\n    node.status({\n        fill: newStatus === \"ONLINE\" ? \"green\" : \"red\",\n        shape: \"dot\",\n        text: newStatus\n    });\n\n    return {\n        topic: \"smartdry/system/status\",\n        payload: newStatus\n    };\n}\n\nreturn null;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "\ncontext.set(\"lastSeen\", 0);\ncontext.set(\"lastStatus\", null);\n",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 820,
+        "wires": [
+            [
+                "3876538b793cc928"
+            ]
+        ]
+    },
+    {
+        "id": "a60a103b155de800",
+        "type": "inject",
+        "z": "ccebc99eec36fe98",
+        "name": "Heartbeat Check",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "5",
+        "crontab": "",
+        "once": true,
+        "onceDelay": "1",
+        "topic": "__smartdry_heartbeat_check__",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 820,
+        "wires": [
+            [
+                "543d257a3e81ca07"
+            ]
+        ]
+    },
+    {
+        "id": "6cb336202e2631f9",
+        "type": "ui-template",
+        "z": "ccebc99eec36fe98",
+        "group": "bed2f5737d6413be",
+        "page": "",
+        "ui": "",
+        "name": "Sensor Health Card",
+        "order": 1,
+        "width": "12",
+        "height": "5",
+        "head": "",
+        "format": "\n<template>\n  <div class=\"sd-health-card\">\n\n    <div class=\"sd-health-header\">\n      <div>\n        <div class=\"sd-health-title\">\n          SENSOR HEALTH MONITORING\n        </div>\n        <div class=\"sd-health-subtitle\">\n          SmartDry Sensor Diagnostics\n        </div>\n      </div>\n\n      <span class=\"sd-health-badge\"\n            :class=\"healthClass\">\n        {{ sensorHealth }}\n      </span>\n    </div>\n\n    <div class=\"sd-health-grid\">\n\n      <div class=\"sd-health-sensor\">\n        <div class=\"sd-health-name\">DHT22</div>\n        <div class=\"sd-health-value\"\n             :class=\"dhtClass\">\n          {{ dhtStatus }}\n        </div>\n        <div class=\"sd-health-detail\">\n          Temperature & Humidity\n        </div>\n      </div>\n\n      <div class=\"sd-health-sensor\">\n        <div class=\"sd-health-name\">HX711</div>\n        <div class=\"sd-health-value\"\n             :class=\"hxClass\">\n          {{ hxStatus }}\n        </div>\n        <div class=\"sd-health-detail\">\n          Load Cell Monitoring\n        </div>\n      </div>\n\n    </div>\n\n    <div class=\"sd-health-message\">\n      {{ healthMessage }}\n    </div>\n\n  </div>\n</template>\n\n<script>\nexport default {\n  computed: {\n    data() {\n      return this.msg?.payload || {};\n    },\n\n    sensorHealth() {\n      return this.data.sensor_health || \"WAITING\";\n    },\n\n    dhtStatus() {\n      return this.data.dht_status || \"WAITING\";\n    },\n\n    hxStatus() {\n      return this.data.hx711_status || \"WAITING\";\n    },\n\n    healthClass() {\n      if (this.sensorHealth === \"OK\") return \"ok\";\n      if (this.sensorHealth === \"WAITING\") return \"waiting\";\n      return \"error\";\n    },\n\n    dhtClass() {\n      return this.dhtStatus === \"OK\"\n        ? \"ok\"\n        : this.dhtStatus === \"ERROR\"\n          ? \"error\"\n          : \"waiting\";\n    },\n\n    hxClass() {\n      return this.hxStatus === \"OK\"\n        ? \"ok\"\n        : this.hxStatus === \"ERROR\"\n          ? \"error\"\n          : \"waiting\";\n    },\n\n    healthMessage() {\n      if (this.sensorHealth === \"OK\") {\n        return \"All sensors are responding normally.\";\n      }\n\n      if (this.sensorHealth === \"DHT22_ERROR\") {\n        return \"Warning: DHT22 sensor reading failed!\";\n      }\n\n      if (this.sensorHealth === \"HX711_ERROR\") {\n        return \"Warning: HX711 sensor reading failed!\";\n      }\n\n      if (this.sensorHealth === \"MULTIPLE_ERRORS\") {\n        return \"Critical: Multiple sensor failures detected!\";\n      }\n\n      return \"Waiting for ESP32 sensor health data...\";\n    }\n  }\n}\n</script>\n\n<style>\n.sd-health-card {\n  padding: 18px 22px;\n  background: #F8FAFC;\n  border: 1px solid #E2E8F0;\n  border-radius: 14px;\n  font-family: Arial, sans-serif;\n  box-sizing: border-box;\n}\n\n.sd-health-header {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  flex-wrap: wrap;\n  gap: 10px;\n}\n\n.sd-health-title {\n  font-size: 17px;\n  font-weight: 700;\n  color: #1E293B;\n}\n\n.sd-health-subtitle {\n  font-size: 12px;\n  color: #64748B;\n  margin-top: 5px;\n}\n\n.sd-health-badge {\n  padding: 8px 14px;\n  border-radius: 20px;\n  font-size: 12px;\n  font-weight: 700;\n  overflow-wrap: anywhere;\n}\n\n.sd-health-grid {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 12px;\n  margin-top: 18px;\n}\n\n.sd-health-sensor {\n  padding: 14px;\n  background: white;\n  border: 1px solid #E2E8F0;\n  border-radius: 10px;\n}\n\n.sd-health-name {\n  font-size: 14px;\n  font-weight: 700;\n  color: #334155;\n}\n\n.sd-health-value {\n  margin-top: 8px;\n  font-size: 20px;\n  font-weight: 700;\n}\n\n.sd-health-detail {\n  margin-top: 7px;\n  font-size: 11px;\n  color: #64748B;\n}\n\n.sd-health-message {\n  margin-top: 15px;\n  font-size: 12px;\n  color: #475569;\n}\n\n.sd-health-card .ok {\n  color: #15803D;\n}\n\n.sd-health-badge.ok {\n  background: #DCFCE7;\n}\n\n.sd-health-card .error {\n  color: #B91C1C;\n}\n\n.sd-health-badge.error {\n  background: #FEE2E2;\n}\n\n.sd-health-card .waiting {\n  color: #64748B;\n}\n\n.sd-health-badge.waiting {\n  background: #E2E8F0;\n}\n</style>\n",
+        "noerr": 0,
+        "storeOutMessages": true,
+        "passthru": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 890,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c205f68da8bc1a33",
+        "type": "function",
+        "z": "ccebc99eec36fe98",
+        "name": "Validate DHT Data",
+        "func": "\nconst data = msg.payload;\n\n// Pastikan payload berupa object\nif (!data || typeof data !== \"object\") {\n    node.status({\n        fill: \"red\",\n        shape: \"dot\",\n        text: \"INVALID PAYLOAD\"\n    });\n\n    return null;\n}\n\n// Periksa status DHT22\nif (data.dht_status === \"ERROR\") {\n    node.status({\n        fill: \"red\",\n        shape: \"dot\",\n        text: \"DHT22 ERROR\"\n    });\n\n    return null;\n}\n\n// Jangan mengubah null menjadi 0\nif (\n    data.temperature === null ||\n    data.temperature === undefined ||\n    data.humidity === null ||\n    data.humidity === undefined ||\n    data.temperature === \"\" ||\n    data.humidity === \"\"\n) {\n    node.status({\n        fill: \"red\",\n        shape: \"dot\",\n        text: \"SENSOR DATA MISSING\"\n    });\n\n    return null;\n}\n\n// Konversi data\nconst temperature = Number(data.temperature);\nconst humidity = Number(data.humidity);\n\n// Validasi rentang DHT22\nconst validTemperature =\n    Number.isFinite(temperature) &&\n    temperature >= -40 &&\n    temperature <= 80;\n\nconst validHumidity =\n    Number.isFinite(humidity) &&\n    humidity >= 0 &&\n    humidity <= 100;\n\n// Hentikan aliran jika tidak valid\nif (!validTemperature || !validHumidity) {\n    node.status({\n        fill: \"red\",\n        shape: \"dot\",\n        text: \"INVALID SENSOR DATA\"\n    });\n\n    return null;\n}\n\n// Jika valid, teruskan ke Gauge dan Chart\nnode.status({\n    fill: \"green\",\n    shape: \"dot\",\n    text: \"DHT22 VALID\"\n});\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 990,
+        "y": 500,
+        "wires": [
+            [
+                "84f9df37e89d6cfb",
+                "2739531ad54a1732"
+            ]
+        ]
+    },
+    {
+        "id": "4fb4cfefc87ce84a",
+        "type": "function",
+        "z": "ccebc99eec36fe98",
+        "name": "Safe Sensor Display",
+        "func": "\nconst data = msg.payload;\n\nif (!data || typeof data !== \"object\") {\n    return null;\n}\n\n// Validasi nilai sensor\nfunction safeValue(value, min, max) {\n    if (\n        value === null ||\n        value === undefined ||\n        value === \"\"\n    ) {\n        return \"--\";\n    }\n\n    const number = Number(value);\n\n    if (\n        !Number.isFinite(number) ||\n        number < min ||\n        number > max\n    ) {\n        return \"--\";\n    }\n\n    return number;\n}\n\n// Periksa status kedua sensor\nconst dhtError = data.dht_status !== \"OK\";\nconst hxError = data.hx711_status !== \"OK\";\n\n// Siapkan data aman khusus tampilan\nmsg.payload = {\n    ...data,\n\n    temperature: dhtError\n        ? \"--\"\n        : safeValue(data.temperature, -40, 80),\n\n    humidity: dhtError\n        ? \"--\"\n        : safeValue(data.humidity, 0, 100),\n\n    water_mass: hxError\n        ? \"--\"\n        : safeValue(data.water_mass, 0, 10000)\n};\n\n// Status Function\nnode.status({\n    fill: dhtError || hxError ? \"red\" : \"green\",\n    shape: \"dot\",\n    text: dhtError || hxError\n        ? \"SENSOR ERROR\"\n        : \"DISPLAY READY\"\n});\n\nreturn msg;\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1020,
+        "y": 580,
+        "wires": [
+            [
+                "1d1694ae9e3c1064",
+                "84dab1197e4ed9b9",
+                "22a0d8bc00b81e53"
+            ]
+        ]
+    },
+    {
+        "id": "e8fe75b1f4dca823",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "@flowfuse/node-red-dashboard": "1.34.1"
+        }
+    }
+]
